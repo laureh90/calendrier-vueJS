@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectacles</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+
+        <div v-if="calendrier != null" class="calendar">
+            <div class="month">
+                <h1>AVRIL 2022</h1>
+            </div>
+
+            <div class="jour">Dimanche</div>
+            <div class="jour">Lundi</div>
+            <div class="jour">Mardi</div>
+            <div class="jour">Mercredi</div>
+            <div class="jour">Jeudi</div>
+            <div class="jour">Vendredi</div>
+            <div class="jour">Samedi</div>
+
+            <div class="day blank" v-for="blank of blanks_start">
+                {{ liste_jours.blanks_start }}
+            </div>
+            <div class="day" :class="{selected:active == liste.date_unix_time },{hasshows:liste.shows.length != 0}"
+                @click="clickDate(liste.date_unix_time)" v-for="liste of liste_jours">
+                <span>{{ liste.date }}</span>
+            </div>
+            <div class="day" v-for="blank of blanks_end">
+                {{ liste_jours.blanks_end }}
+            </div>
+        </div>
+
+        <div v-if="selection == 0" class="empty">Aucune représentation pour cette date</div>
+
+        <div class="selected-infos">
+            <div class="shows">
+                <div class="show" v-for=" representation of representations">
+                    <h2> {{ date }} </h2>
+                    <div class="title">{{ representation.title }}</div>
+                    <div class="speaker">{{ representation.speaker }}</div>
+                    <div class="location">{{ representation.location }}</div>
+                    <div class="description">
+                        <span v-html="representation.description"></span>
+                    </div>
+                    <div>
+                        <div class="book-bt" :class="{disabled:representation.total_seats_left == 0}"
+                            @click="reservation(representation.id)">Réserver</div>
+                        {{ representation.total_seats_left }} places restantes
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

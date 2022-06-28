@@ -1,0 +1,224 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url("../images/fleur.png");
+  background-size: contain;
+  background-color: #f8f2ed;
+}
+
+#app {
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#app[v-cloak] {
+  opacity: 0;
+}
+
+.calendar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 630px;
+  border: 3px solid #a70404;
+  padding: 10px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.calendar .month {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border-bottom: 16px solid transparent;
+  -o-border-image: linear-gradient(45deg, #f5b28b, #f86d5b);
+     border-image: linear-gradient(45deg, #f5b28b, #f86d5b);
+  border-image-slice: 1;
+  background-color: #fac5a2;
+  color: white;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.calendar .jour {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 90px;
+  height: 90px;
+  border-bottom: 10px solid #f5b28b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  font-weight: 300;
+  font-weight: bold;
+}
+
+.calendar .day {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 90px;
+  height: 90px;
+  border: 5px solid transparent;
+  -o-border-image: linear-gradient(15deg, #fdcfb7, #f5b28b);
+     border-image: linear-gradient(15deg, #fdcfb7, #f5b28b);
+  border-image-slice: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 35px;
+  font-weight: 300;
+  color: black;
+  font-weight: bold;
+  -webkit-box-shadow: 2px 2px 10px 2px white;
+          box-shadow: 2px 2px 10px 2px white;
+  background-color: rgba(255, 255, 255, 0.493);
+}
+
+.calendar .day.hasshows {
+  color: #ce5403;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.calendar .day.hasshows:hover {
+  background-color: rgba(250, 222, 190, 0.678);
+}
+
+.calendar .day.selected {
+  border: 3px solid #a70404;
+  color: #970a0a;
+}
+
+.empty {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+  margin-top: 50px;
+}
+
+.selected-infos {
+  width: 600px;
+}
+
+.selected-infos h2 {
+  text-align: center;
+  font-size: 34px;
+}
+
+.selected-infos .shows {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.selected-infos .shows .show {
+  width: 100%;
+  margin-bottom: 50px;
+  border: 2px solid #ff5100;
+  padding: 10px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  background-color: rgba(245, 207, 182, 0.513);
+}
+
+.selected-infos .shows .show h2 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.selected-infos .shows .show .title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.selected-infos .shows .show .speaker {
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.selected-infos .shows .show .location {
+  font-size: 18px;
+  border-bottom: 1px solid #888;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.selected-infos .shows .show .description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 20px;
+}
+
+.selected-infos .shows .show .description div {
+  line-height: 1.5em;
+}
+
+.selected-infos .shows .show .book-bt {
+  margin-top: 10px;
+  padding: 10px;
+  display: inline-block;
+  background-color: #f5b28b;
+  border-radius: 5px;
+  border: 1px solid #f3a070;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.selected-infos .shows .show .book-bt:hover {
+  background-color: #f3d0af;
+  border-color: #f3b1af;
+}
+
+.selected-infos .shows .show .book-bt.disabled {
+  background-color: #EEE;
+  color: #888;
+  cursor: default;
+  border: none;
+}
+/*# sourceMappingURL=style.css.map */

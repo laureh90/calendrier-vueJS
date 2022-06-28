@@ -1,0 +1,185 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('../images/fleur.png');
+    background-size:contain;
+    background-color: rgb(248, 242, 237);
+}
+#app {
+    transition: opacity 0.5s ease; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &[v-cloak] {
+        opacity: 0;
+    }
+}
+
+
+.calendar {
+    $day-size: 90px; 
+    display: flex;
+    flex-wrap: wrap;
+    width: $day-size * 7;
+    border: 3px solid rgb(167, 4, 4);
+    padding: 10px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    
+    //mois du calendrier
+  .month{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: 16px solid transparent;
+    border-image: linear-gradient(45deg, rgb(245, 178, 139) , rgb(248, 109, 91));
+    border-image-slice: 1;
+    background-color: rgb(250, 197, 162);
+    color: rgb(255, 255, 255);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+   
+  }
+  //journée de la semaine
+    .jour{
+        box-sizing: border-box;
+        width: $day-size;
+        height: $day-size;
+        border-bottom: 10px solid rgb(245, 178, 139);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 300;
+        font-weight: bold;
+    }
+    // Chaque jour (case) du calendrier
+    .day {
+        box-sizing: border-box;
+        width: $day-size;
+        height: $day-size;
+        border: 5px solid transparent;
+        border-image: linear-gradient(15deg, rgb(253, 207, 183) , rgb(245, 178, 139));
+        border-image-slice: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+        font-weight: 300;
+        color:rgb(0, 0, 0);
+        font-weight: bold;
+        box-shadow: 2px 2px 10px 2px white;
+        background-color: rgba(255, 255, 255, 0.493);
+       
+        // Lorsqu'il y a des représentations pour cette journée
+        &.hasshows {
+            color: rgb(206, 84, 3);
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(250, 222, 190, 0.678);
+            }
+        }
+
+        // Lorsque c'est la journée sélectionnée
+        &.selected {
+            border: 3px solid rgb(167, 4, 4);
+            color: rgb(151, 10, 10);
+        }
+    }
+}
+
+  // Lorsqu'il n'y a pas de représentation
+  .empty {
+    text-align: center;
+    font-size: 16px;
+    color: #777;
+    margin-top: 50px;
+
+}
+
+
+.selected-infos {
+    width: 600px;
+    h2 {
+        text-align: center;
+        font-size: 34px;
+    }
+    .shows {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      
+        // Chaque représentation
+        .show {
+            width: 100%;
+            margin-bottom: 50px;
+            border: 2px solid rgb(255, 81, 0);
+            padding: 10px;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            background-color: rgba(245, 207, 182, 0.513);
+            h2{
+               margin: 0px;
+               padding: 0px;
+             }
+
+            .title {
+                font-size: 24px;
+                font-weight:bold;
+            }
+
+            .speaker {
+                font-size: 22px;
+                font-weight: 300;
+            }
+
+            .location {
+                font-size: 18px;
+                border-bottom: 1px solid #888;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-right: 10px;
+            }
+
+            .description {
+                display: flex;
+                font-size: 20px;
+
+                div {
+                    line-height: 1.5em;
+                }
+            }
+           
+            // Bouton de réservation
+            .book-bt {
+                margin-top: 10px;
+                padding: 10px;
+                display: inline-block;
+                background-color: rgb(245, 178, 139);
+                border-radius: 5px;
+                border: 1px solid rgb(243, 160, 112);
+                cursor: pointer;
+                user-select: none;
+
+                &:hover {
+                    background-color: rgb(243, 208, 175);
+                    border-color: rgb(243, 177, 175);
+                }
+
+                &.disabled {
+                    background-color: #EEE;
+                    color: #888;
+                    cursor: default;
+                    border: none;
+                }
+            }
+            
+        }
+    }
+}
